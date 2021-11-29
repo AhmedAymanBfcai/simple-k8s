@@ -1,0 +1,12 @@
+apiVersion: v1 # When we specific the verion we indicate the limits of types of objects we can use in this configuration file. Each API version defines a different set of 'objects' we can use.
+kind: Pod # The kind entry is meant to indicate the type of object that we want to make.
+metadata:
+  name: client-pod
+  labels:
+    component: web
+  spec:
+    containers:
+      - name: client
+        image: stephengrider/multi-client
+        ports:
+          - containerPort: 3000
