@@ -1,0 +1,26 @@
+apiVersion: apps/v1 # We want to use a object that is defined inside the API version of apps/v1.
+kind: Deployment # We indicate the specifi type of object in apps/v1.
+# Deployment object:
+# * Maintains a set of identical pods, ensuring thay they have the correct config and that the right number exists.
+# * Runs a set of identical pods (one or more).
+# * Monitors the state of each pod, updating as necessary.
+# * Good for dev.
+# * Good for production
+
+metadata:
+  name: client-deployment
+spec:
+  replicas: 1 # The number of pods you wanna create by the template under.
+  selector: # Is is a way to handle for every pod created by deployment. The handle is specified in the label proprety.
+    matchLabels:
+      component: web
+  template: # This is a template for every single pod is created by this deployment.
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: client
+          image: stephengrider/multi-client
+          ports:
+            - containerPort: 3000

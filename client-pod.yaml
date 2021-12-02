@@ -1,5 +1,12 @@
 apiVersion: v1 # When we specific the verion we indicate the limits of types of objects we can use in this configuration file. Each API version defines a different set of 'objects' we can use.
 kind: Pod # The kind entry is meant to indicate the type of object that we want to make.
+# Pods:
+# * Runs one or more closely related container.
+# * Not everything in the file can be updated.
+# * Runs a single set of containers.
+# * Good for one-off dev purposed.
+# * Rarely used drectly in production.
+
 metadata:
   name: client-pod
   labels:
